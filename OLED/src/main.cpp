@@ -432,9 +432,27 @@ void setup()
 
 void loop()
 {
-  fillrect(x, 58);
-  if(digitalRead(levo)==0) x-=3;
-  if(digitalRead(desno)==0) x+=3;
-  if(x>108) x=108;
-  if(x<0) x=0;
+  uint32_t ad = analogRead(14);
+  float voltage = ad*3.3/4096.0;
+  char buffer[10];
+  dtostrf(voltage, 5, 2, buffer);
+  buffer[5]='V';
+  buffer[6]='\0';
+  display.clearDisplay();
+  display.setTextSize(2); // Draw 2X-scale text
+  display.setTextColor(1);
+  display.setCursor(10, 0);
+  display.println(buffer);
+  display.display(); // Show initial text
+  delay(100);
 }
+
+
+
+
+
+
+
+/*
+
+*/
