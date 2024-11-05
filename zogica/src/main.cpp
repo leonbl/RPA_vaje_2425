@@ -35,18 +35,18 @@ void setup()
 
 }
 
-int16_t x=0, y=0, r=5;
-int16_t xspeed=2, yspeed=3;
+int16_t x=6, y=6, r=5;
+int16_t xspeed=2, yspeed=5;
 
 void loop()
 {
   display.clearDisplay();
   x += xspeed;
   y += yspeed;
-  if(x>(w-r)){
+  if(x>(w-r) || x<r){
     xspeed = -xspeed;
   }
-  if(y>(h-r)){
+  if(y>(h-r) || y<r){
     yspeed = -yspeed;
   }
   display.drawCircle(x, y, r, SSD1306_WHITE);
