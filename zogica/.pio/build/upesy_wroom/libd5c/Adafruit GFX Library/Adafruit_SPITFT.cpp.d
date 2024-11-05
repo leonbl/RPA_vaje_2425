@@ -1,5 +1,6 @@
-.pio/build/upesy_wroom/lib016/Adafruit\ GFX\ Library/Adafruit_GFX.cpp.o: \
- .pio/libdeps/upesy_wroom/Adafruit\ GFX\ Library/Adafruit_GFX.cpp \
+.pio/build/upesy_wroom/libd5c/Adafruit\ GFX\ Library/Adafruit_SPITFT.cpp.o: \
+ .pio/libdeps/upesy_wroom/Adafruit\ GFX\ Library/Adafruit_SPITFT.cpp \
+ .pio/libdeps/upesy_wroom/Adafruit\ GFX\ Library/Adafruit_SPITFT.h \
  .pio/libdeps/upesy_wroom/Adafruit\ GFX\ Library/Adafruit_GFX.h \
  C:/Users/b35/.platformio/packages/framework-arduinoespressif32/cores/esp32/Arduino.h \
  C:/Users/b35/.platformio/packages/framework-arduinoespressif32/cores/esp32/esp_arduino_version.h \
@@ -142,5 +143,4 @@
  C:/Users/b35/.platformio/packages/framework-arduinoespressif32/cores/esp32/esp32-hal.h \
  .pio/libdeps/upesy_wroom/Adafruit\ BusIO/Adafruit_SPIDevice.h \
  C:/Users/b35/.platformio/packages/framework-arduinoespressif32/libraries/SPI/src/SPI.h \
- C:/Users/b35/.platformio/packages/framework-arduinoespressif32/cores/esp32/esp32-hal-spi.h \
- .pio/libdeps/upesy_wroom/Adafruit\ GFX\ Library/glcdfont.c
+ C:/Users/b35/.platformio/packages/framework-arduinoespressif32/cores/esp32/esp32-hal-spi.h

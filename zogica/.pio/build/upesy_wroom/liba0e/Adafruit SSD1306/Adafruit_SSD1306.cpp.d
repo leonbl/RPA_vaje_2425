@@ -1,6 +1,7 @@
-.pio/build/upesy_wroom/lib016/Adafruit\ GFX\ Library/Adafruit_SPITFT.cpp.o: \
- .pio/libdeps/upesy_wroom/Adafruit\ GFX\ Library/Adafruit_SPITFT.cpp \
- .pio/libdeps/upesy_wroom/Adafruit\ GFX\ Library/Adafruit_SPITFT.h \
+.pio/build/upesy_wroom/liba0e/Adafruit\ SSD1306/Adafruit_SSD1306.cpp.o: \
+ .pio/libdeps/upesy_wroom/Adafruit\ SSD1306/Adafruit_SSD1306.cpp \
+ C:/Users/b35/.platformio/packages/framework-arduinoespressif32/cores/esp32/pgmspace.h \
+ .pio/libdeps/upesy_wroom/Adafruit\ SSD1306/Adafruit_SSD1306.h \
  .pio/libdeps/upesy_wroom/Adafruit\ GFX\ Library/Adafruit_GFX.h \
  C:/Users/b35/.platformio/packages/framework-arduinoespressif32/cores/esp32/Arduino.h \
  C:/Users/b35/.platformio/packages/framework-arduinoespressif32/cores/esp32/esp_arduino_version.h \
@@ -111,7 +112,6 @@
  C:/Users/b35/.platformio/packages/framework-arduinoespressif32/cores/esp32/binary.h \
  C:/Users/b35/.platformio/packages/framework-arduinoespressif32/cores/esp32/WCharacter.h \
  C:/Users/b35/.platformio/packages/framework-arduinoespressif32/cores/esp32/WString.h \
- C:/Users/b35/.platformio/packages/framework-arduinoespressif32/cores/esp32/pgmspace.h \
  C:/Users/b35/.platformio/packages/framework-arduinoespressif32/cores/esp32/Stream.h \
  C:/Users/b35/.platformio/packages/framework-arduinoespressif32/cores/esp32/Print.h \
  C:/Users/b35/.platformio/packages/framework-arduinoespressif32/cores/esp32/Printable.h \
@@ -143,4 +143,5 @@
  C:/Users/b35/.platformio/packages/framework-arduinoespressif32/cores/esp32/esp32-hal.h \
  .pio/libdeps/upesy_wroom/Adafruit\ BusIO/Adafruit_SPIDevice.h \
  C:/Users/b35/.platformio/packages/framework-arduinoespressif32/libraries/SPI/src/SPI.h \
- C:/Users/b35/.platformio/packages/framework-arduinoespressif32/cores/esp32/esp32-hal-spi.h
+ C:/Users/b35/.platformio/packages/framework-arduinoespressif32/cores/esp32/esp32-hal-spi.h \
+ .pio/libdeps/upesy_wroom/Adafruit\ SSD1306/splash.h

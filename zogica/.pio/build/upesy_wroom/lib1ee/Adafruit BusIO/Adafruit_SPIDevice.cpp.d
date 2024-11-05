@@ -1,4 +1,4 @@
-.pio/build/upesy_wroom/liba18/Adafruit\ BusIO/Adafruit_SPIDevice.cpp.o: \
+.pio/build/upesy_wroom/lib1ee/Adafruit\ BusIO/Adafruit_SPIDevice.cpp.o: \
  .pio/libdeps/upesy_wroom/Adafruit\ BusIO/Adafruit_SPIDevice.cpp \
  .pio/libdeps/upesy_wroom/Adafruit\ BusIO/Adafruit_SPIDevice.h \
  C:/Users/b35/.platformio/packages/framework-arduinoespressif32/cores/esp32/Arduino.h \

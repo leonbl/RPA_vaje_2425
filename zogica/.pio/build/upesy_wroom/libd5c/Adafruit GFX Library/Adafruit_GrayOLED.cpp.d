@@ -1,6 +1,7 @@
-.pio/build/upesy_wroom/liba18/Adafruit\ BusIO/Adafruit_BusIO_Register.cpp.o: \
- .pio/libdeps/upesy_wroom/Adafruit\ BusIO/Adafruit_BusIO_Register.cpp \
- .pio/libdeps/upesy_wroom/Adafruit\ BusIO/Adafruit_BusIO_Register.h \
+.pio/build/upesy_wroom/libd5c/Adafruit\ GFX\ Library/Adafruit_GrayOLED.cpp.o: \
+ .pio/libdeps/upesy_wroom/Adafruit\ GFX\ Library/Adafruit_GrayOLED.cpp \
+ .pio/libdeps/upesy_wroom/Adafruit\ GFX\ Library/Adafruit_GrayOLED.h \
+ .pio/libdeps/upesy_wroom/Adafruit\ GFX\ Library/Adafruit_GFX.h \
  C:/Users/b35/.platformio/packages/framework-arduinoespressif32/cores/esp32/Arduino.h \
  C:/Users/b35/.platformio/packages/framework-arduinoespressif32/cores/esp32/esp_arduino_version.h \
  C:/Users/b35/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/include/freertos/include/freertos/FreeRTOS.h \
@@ -135,6 +136,8 @@
  C:/Users/b35/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/include/esp_hw_support/include/soc/esp32/spiram.h \
  C:/Users/b35/.platformio/packages/framework-arduinoespressif32/cores/esp32/io_pin_remap.h \
  C:/Users/b35/.platformio/packages/framework-arduinoespressif32/cores/esp32/Arduino.h \
+ C:/Users/b35/.platformio/packages/framework-arduinoespressif32/cores/esp32/Print.h \
+ .pio/libdeps/upesy_wroom/Adafruit\ GFX\ Library/gfxfont.h \
  .pio/libdeps/upesy_wroom/Adafruit\ BusIO/Adafruit_I2CDevice.h \
  C:/Users/b35/.platformio/packages/framework-arduinoespressif32/libraries/Wire/src/Wire.h \
  C:/Users/b35/.platformio/packages/framework-arduinoespressif32/cores/esp32/esp32-hal.h \
