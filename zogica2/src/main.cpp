@@ -43,7 +43,7 @@ void setup()
 int16_t xZoga = 6, yZoga = 6, rZoga = 5;
 int16_t xspeed = 1, yspeed = 2;
 int16_t xRect = 50, yRect = 59, wRect = 25, hRect = 5;
-
+uint16_t bestScore = 0;
 void loop()
 {
   display.clearDisplay();
@@ -54,9 +54,10 @@ void loop()
     xspeed = -xspeed;
   }
 
-  if (xZoga >= xRect && xZoga <= (xRect + wRect) && yZoga >= (yRect - rZoga))
+  if (xZoga >= xRect && xZoga <= (xRect + wRect) && yZoga > (yRect - rZoga))
   {
     yspeed = -yspeed;
+    bestScore++;
   }
   else if (yZoga > (h - rZoga))
   {
@@ -64,6 +65,13 @@ void loop()
     display.setTextColor(SSD1306_WHITE);
     display.setCursor(10, 10);
     display.println(F("GAME OVER"));
+    display.setTextSize(1); // Draw 2X-scale text
+    display.setTextColor(SSD1306_WHITE);
+    display.setCursor(10, 30);
+    display.println(F("BEST SCORE:"));
+    display.setCursor(10, 50);
+    String myString = String(bestScore);
+    display.println(myString);
     display.display(); // Show initial text
     while(1);
   }
