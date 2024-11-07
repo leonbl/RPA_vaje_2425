@@ -72,7 +72,7 @@ void loop()
   }
   
   display.drawCircle(xZoga, yZoga, rZoga, SSD1306_WHITE);
-  xRect = getPotPos();
+  getPotPos();
   display.drawRect(xRect, yRect, wRect, hRect, 1);
 
   display.display();
@@ -83,11 +83,11 @@ void getPotPos()
   // int16_t val = analogRead(14);
   // int16_t loc = map(val, 0, 4095, 0, 128 - wRect);
   if(digitalRead(LEVO)){
-    xRect-=2;
+    xRect+=2;
     if(xRect < 0) xRect = 0;
   }
   if(digitalRead(DESNO)){
-    xRect+=2;
+    xRect-=2;
     if(xRect > (w - wRect)) xRect = w - wRect;
   }
   
