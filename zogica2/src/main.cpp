@@ -19,6 +19,8 @@ Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 
 int16_t w, h;
 
+int16_t getPotPos();
+
 void setup()
 {
   Serial.begin(9600);
@@ -37,6 +39,7 @@ void setup()
 
 int16_t xZoga=6, yZoga=6, rZoga=5;
 int16_t xspeed=5, yspeed=1;
+int16_t xRect=50, yRect=59, wRect=25, hRect=5;
 
 void loop()
 {
@@ -50,6 +53,13 @@ void loop()
     yspeed = -yspeed;
   }
   display.drawCircle(xZoga, yZoga, rZoga, SSD1306_WHITE);
+  getPotPos();
+  display.drawRect(xRect, yRect, wRect, hRect, 1);  
   display.display();
-  display.drawRect();
+}
+
+int16_t getPotPos(){
+  int16_t val = analogRead(14);
+  Serial.println(val);
+  return val;
 }
