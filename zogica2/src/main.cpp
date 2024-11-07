@@ -34,32 +34,52 @@ void setup()
   }
   h = display.height();
   w = display.width();
-
 }
 
-int16_t xZoga=6, yZoga=6, rZoga=5;
-int16_t xspeed=5, yspeed=1;
-int16_t xRect=50, yRect=59, wRect=25, hRect=5;
+int16_t xZoga = 6, yZoga = 6, rZoga = 5;
+int16_t xspeed = 1, yspeed = 2;
+int16_t xRect = 50, yRect = 59, wRect = 25, hRect = 5;
 
 void loop()
 {
   display.clearDisplay();
   xZoga += xspeed;
   yZoga += yspeed;
-  if(xZoga>(w-rZoga) || xZoga<rZoga){
+  if (xZoga > (w - rZoga) || xZoga < rZoga)
+  {
     xspeed = -xspeed;
   }
-  if(yZoga>(h-rZoga) || yZoga<rZoga){
+
+  if (xZoga >= xRect && xZoga <= (xRect + wRect) && yZoga >= (yRect - rZoga))
+  {
+    yZoga = yRect;
     yspeed = -yspeed;
   }
+  else if (yZoga > (h - rZoga))
+  {
+    display.setTextSize(2); // Draw 2X-scale text
+    display.setTextColor(SSD1306_WHITE);
+    display.setCursor(10, 10);
+    display.println(F("GAME OVER"));
+    display.display(); // Show initial text
+    while(1);
+  }
+  else if(yZoga < rZoga){
+      yspeed = -yspeed;
+  }
+  
   display.drawCircle(xZoga, yZoga, rZoga, SSD1306_WHITE);
-  getPotPos();
-  display.drawRect(xRect, yRect, wRect, hRect, 1);  
+  xRect = getPotPos();
+  display.drawRect(xRect, yRect, wRect, hRect, 1);
+
   display.display();
 }
 
-int16_t getPotPos(){
+int16_t getPotPos()
+{
   int16_t val = analogRead(14);
-  Serial.println(val);
-  return val;
+
+  int16_t loc = map(val, 0, 4095, 0, 128 - wRect);
+  Serial.println(loc);
+  return loc;
 }
