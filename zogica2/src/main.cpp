@@ -19,12 +19,16 @@ Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 
 int16_t w, h;
 
-int16_t getPotPos();
+void getPotPos();
+
+#define LEVO 15
+#define DESNO 4
 
 void setup()
 {
   Serial.begin(9600);
-
+  pinMode(LEVO, INPUT);
+  pinMode(DESNO, INPUT);
   // SSD1306_SWITCHCAPVCC = generate display voltage from 3.3V internally
   if (!display.begin(SSD1306_SWITCHCAPVCC, SCREEN_ADDRESS))
   {
@@ -50,7 +54,7 @@ void loop()
     xspeed = -xspeed;
   }
 
-  if (xZoga >= xRect && xZoga <= (xRect + wRect) && yZoga > (yRect - rZoga))
+  if (xZoga >= xRect && xZoga <= (xRect + wRect) && yZoga >= (yRect - rZoga))
   {
     yspeed = -yspeed;
   }
@@ -74,9 +78,18 @@ void loop()
   display.display();
 }
 
-int16_t getPotPos()
+void getPotPos()
 {
-  int16_t val = analogRead(14);
-  int16_t loc = map(val, 0, 4095, 0, 128 - wRect);
-  return loc;
+  // int16_t val = analogRead(14);
+  // int16_t loc = map(val, 0, 4095, 0, 128 - wRect);
+  if(digitalRead(LEVO)){
+    xRect-=2;
+    if(xRect < 0) xRect = 0;
+  }
+  if(digitalRead(DESNO)){
+    xRect+=2;
+    if(xRect > (w - wRect)) xRect = w - wRect;
+  }
+  
+  //return loc;
 }
