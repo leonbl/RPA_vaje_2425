@@ -50,9 +50,8 @@ void loop()
     xspeed = -xspeed;
   }
 
-  if (xZoga >= xRect && xZoga <= (xRect + wRect) && yZoga >= (yRect - rZoga))
+  if (xZoga >= xRect && xZoga <= (xRect + wRect) && yZoga > (yRect - rZoga))
   {
-    yZoga = yRect;
     yspeed = -yspeed;
   }
   else if (yZoga > (h - rZoga))
@@ -78,8 +77,6 @@ void loop()
 int16_t getPotPos()
 {
   int16_t val = analogRead(14);
-
   int16_t loc = map(val, 0, 4095, 0, 128 - wRect);
-  Serial.println(loc);
   return loc;
 }
