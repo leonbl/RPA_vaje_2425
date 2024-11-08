@@ -27,7 +27,7 @@ void checkBlocks();
 #define DESNO 4
 
 #define col 4
-#define row 2
+#define row 3
 bool blockPresent[row*col];
 
 void setup()
@@ -90,7 +90,7 @@ void loop()
   display.drawCircle(xZoga, yZoga, rZoga, SSD1306_WHITE);
   getPotPos();
   display.drawRect(xRect, yRect, wRect, hRect, 1);
-  
+
   checkBlocks();
   showBlocks();
   display.display();
@@ -114,7 +114,7 @@ void getPotPos()
 
 
 int16_t xBlock[col]={5, 35, 65, 95};
-int16_t yBlock[row]={5, 15};
+int16_t yBlock[row]={5, 15, 25};
 int16_t blockW = 25, blockH = 5;
 
 
@@ -137,6 +137,7 @@ void checkBlocks(){
       if(blockPresent[numB]){
         if(((yZoga-rZoga)<(yBlock[y]+blockH))&&(xZoga>xBlock[x])&&(xZoga<(xBlock[x]+blockW)&&(yspeed<0))){
           blockPresent[numB] = false;
+          yspeed=-yspeed;
         }
       }
       numB++;
