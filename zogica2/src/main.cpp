@@ -143,4 +143,23 @@ void checkBlocks(){
       numB++;
     }
   }
+  int a;
+  for(a=0; a<(row*col);a++){
+    if(blockPresent[a]) break;
+  }
+  if(a>=(row*col)){
+    display.setTextSize(2); // Draw 2X-scale text
+    display.setTextColor(SSD1306_WHITE);
+    display.setCursor(10, 10);
+    display.println(F("YOU WIN!"));
+    display.setTextSize(1); // Draw 2X-scale text
+    display.setTextColor(SSD1306_WHITE);
+    display.setCursor(10, 30);
+    display.println(F("BEST SCORE:"));
+    display.setCursor(10, 50);
+    String myString = String(bestScore);
+    display.println(myString);
+    display.display(); // Show initial text
+    while(1);
+  }
 }
