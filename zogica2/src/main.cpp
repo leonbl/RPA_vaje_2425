@@ -20,6 +20,7 @@ Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 int16_t w, h;
 
 void getPotPos();
+void showBlocks();
 
 #define LEVO 15
 #define DESNO 4
@@ -111,13 +112,15 @@ void getPotPos()
 
 int16_t xBlock[col]={5, 35, 65, 95};
 int16_t yBlock[row]={5, 10};
+int16_t blockW = 25, blockH = 8;
+
 
 void showBlocks(){
   int numB = 0;
   for(int y=0; y<row; y++){
     for(int x=0; x<col; x++){
       if(blockPresent[numB]){
-
+        display.fillRect(xBlock[x], yBlock[y], blockW, blockH, 1);
       }
       numB++;
     }
