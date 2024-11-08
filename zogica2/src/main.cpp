@@ -21,6 +21,7 @@ int16_t w, h;
 
 void getPotPos();
 void showBlocks();
+void checkBlocks();
 
 #define LEVO 15
 #define DESNO 4
@@ -89,7 +90,9 @@ void loop()
   display.drawCircle(xZoga, yZoga, rZoga, SSD1306_WHITE);
   getPotPos();
   display.drawRect(xRect, yRect, wRect, hRect, 1);
-
+  
+  checkBlocks();
+  showBlocks();
   display.display();
 }
 
@@ -111,8 +114,8 @@ void getPotPos()
 
 
 int16_t xBlock[col]={5, 35, 65, 95};
-int16_t yBlock[row]={5, 10};
-int16_t blockW = 25, blockH = 8;
+int16_t yBlock[row]={5, 15};
+int16_t blockW = 25, blockH = 5;
 
 
 void showBlocks(){
@@ -125,5 +128,18 @@ void showBlocks(){
       numB++;
     }
   }
+}
 
+void checkBlocks(){
+  int numB = 0;
+  for(int y=0; y<row; y++){
+    for(int x=0; x<col; x++){
+      if(blockPresent[numB]){
+        if(((yZoga-rZoga)<(yBlock[y]+blockH))&&(xZoga>xBlock[x])&&(xZoga<(xBlock[x]+blockW)&&(yspeed<0))){
+          blockPresent[numB] = false;
+        }
+      }
+      numB++;
+    }
+  }
 }
