@@ -24,11 +24,17 @@ void getPotPos();
 #define LEVO 15
 #define DESNO 4
 
+#define col 4
+#define row 2
+bool blockPresent[row*col];
+
 void setup()
 {
   Serial.begin(9600);
   pinMode(LEVO, INPUT);
   pinMode(DESNO, INPUT);
+
+  memset(blockPresent, true, row*col);
   // SSD1306_SWITCHCAPVCC = generate display voltage from 3.3V internally
   if (!display.begin(SSD1306_SWITCHCAPVCC, SCREEN_ADDRESS))
   {
@@ -54,7 +60,7 @@ void loop()
     xspeed = -xspeed;
   }
 
-  if (xZoga >= xRect && xZoga <= (xRect + wRect) && yZoga > (yRect - rZoga))
+  if (xZoga >= xRect && xZoga <= (xRect + wRect) && (yZoga+1) > (yRect - rZoga))
   {
     yspeed = -yspeed;
     bestScore++;
@@ -100,4 +106,21 @@ void getPotPos()
   }
   
   //return loc;
+}
+
+
+int16_t xBlock[col]={5, 35, 65, 95};
+int16_t yBlock[row]={5, 10};
+
+void showBlocks(){
+  int numB = 0;
+  for(int y=0; y<row; y++){
+    for(int x=0; x<col; x++){
+      if(blockPresent[numB]){
+
+      }
+      numB++;
+    }
+  }
+
 }
