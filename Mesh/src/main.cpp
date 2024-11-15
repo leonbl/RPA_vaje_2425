@@ -9,16 +9,23 @@
 Scheduler userScheduler; // to control your personal task
 painlessMesh  mesh;
 
+char prejeto[100]={0};
+uint32_t indx = 0;
+bool sprejemKoncan = false;
+
 // User stub
 void sendMessage() ; // Prototype so PlatformIO doesn't complain
 
 Task taskSendMessage( TASK_SECOND * 1 , TASK_FOREVER, &sendMessage );
 
 void sendMessage() {
-  String msg = "Hi from node1 ";
-  msg += mesh.getNodeId();
-  mesh.sendBroadcast( msg );
-  taskSendMessage.setInterval( random( TASK_SECOND * 1, TASK_SECOND * 5 ));
+  if(sprejemKoncan){
+    char id[20]={0};
+    sprintf(id, "%lu", mesh.getNodeId() );
+    strcat(prejeto, id);
+    mesh.sendBroadcast( prejeto );
+    taskSendMessage.setInterval( random( TASK_SECOND * 1, TASK_SECOND * 5 ));
+  }
 }
 
 // Needed for painless library
@@ -57,4 +64,16 @@ void setup() {
 void loop() {
   // it will run the user scheduler as well
   mesh.update();
+  if (Serial.available() > 0) {
+    char znak = Serial.read();
+    if(znak == 10){
+      Serial.println(prejeto);
+      sprejemKoncan = true;
+      indx = 0;
+    }else{
+      prejeto[indx] = znak;
+      indx++;
+    }
+  }
 }
+
