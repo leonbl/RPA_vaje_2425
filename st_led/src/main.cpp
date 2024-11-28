@@ -1,37 +1,63 @@
 #include <Arduino.h>
+
 #define SDI 8
 #define SCL 7
 #define LCL 4
 
+uint32_t nmb = 0; 
+uint32_t stari = 0;
+
 void t_scl();
 void t_lcl();
+void display(uint8_t num, uint8_t pos);
+void display4(uint32_t st);
 
-uint8_t stevila[]={0x03,0x9f,0x25,0x0d,0x99,0x49,0x41,0x1f,0x01,0x09};
+uint8_t stevila[]={0x03, 0x9f, 0x25, 0x0d, 0x99, 0x49, 0x41, 0x1f, 0x01, 0x09};
 
 void setup() {
-  pinMode(LCL, OUTPUT);
-  pinMode(SCL, OUTPUT);
-  pinMode(SDI, OUTPUT);
+ pinMode(SDI, OUTPUT);
+ pinMode(SCL, OUTPUT);
+ pinMode(LCL, OUTPUT);
 }
 
 void loop() {
-  uint8_t a = stevila[9], b = 0;
-  for(int n=0; n<8; n++){
-    b = a & 0x01;
-    digitalWrite(SDI, b);
-    a = a >> 1;
-    t_scl();
+  
+  if(millis()-stari > 100){
+    nmb++;
+    stari = millis();
   }
-  a = 0xff;
-  for(int n=0; n<8; n++){
-    b = a & 0x01;
-    digitalWrite(SDI, b);
-    a = a >> 1;
-    t_scl();
-  }
+  display4(nmb);
 
+}
+
+void display(uint8_t num, uint8_t pos){
+  u_int8_t a = stevila[num], b = 0;
+  for(int n=0; n<8; n++){
+    b = a & 0x01;
+    digitalWrite(SDI, b);
+    a = a >> 1;
+    t_scl();
+  }
+    a = 0x10;
+    a = a << pos;
+    for(int n=0; n<8; n++){
+    b = a & 0x01;
+    digitalWrite(SDI, b);
+    a = a >> 1;
+    t_scl();
+
+  }
   t_lcl();
-  delay(1000);
+
+}
+
+void display4(uint32_t st){
+
+   display(st / 1000, 3);
+   display((st % 1000)/100  ,2);
+   display((st % 100)/10, 1);
+   display(st %10, 0);
+ 
 }
 
 void t_scl(){
