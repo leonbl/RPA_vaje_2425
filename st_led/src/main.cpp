@@ -22,7 +22,7 @@ void setup() {
 
 void loop() {
   
-  if(millis()-stari > 100){
+  if(millis()-stari > 10){
     nmb++;
     stari = millis();
   }
