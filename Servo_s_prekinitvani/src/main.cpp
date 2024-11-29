@@ -18,7 +18,7 @@ void setup() {
 }
 
 void loop() {
-  
+  pos = analogRead(A0);
 }
 
 void timerInt(){
